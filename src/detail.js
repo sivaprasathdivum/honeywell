@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
@@ -31,7 +32,7 @@ class Detail extends React.Component {
     }
 
     render() {
-        const options = {
+        const options_1 = {
             chart: {
               type: 'spline'
             },
@@ -44,7 +45,25 @@ class Detail extends React.Component {
               }
             ]
           };
-        return <HighchartsReact highcharts={Highcharts} options={options} />
+
+          const options_2 = {
+            chart: {
+              type: 'spline'
+            },
+            title: {
+              text: 'Last Hour'
+            },
+            series: [
+              {
+                data: [1, 2, 1, 4, 3, 6]
+              }
+            ]
+          };
+        return <div>
+          <div className="header"> Detail Page </div>
+          <HighchartsReact highcharts={Highcharts} options={options_1} />
+          <HighchartsReact highcharts={Highcharts} options={options_2} />
+          </div>
     }
 }
 export default Detail

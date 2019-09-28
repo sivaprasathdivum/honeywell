@@ -17,46 +17,65 @@ class App extends React.Component {
 
   render() {
     const data = [{
-      name: 'Tanner Linsley',
-      age: 26,
-      friend: {
-        name: 'Jason Maurer',
-        age: 23,
-      }
+      name: 'Router_1',
+      location:"Bangalore",
+      type:"VM",
+      c_value: "34",
+      status: "Active"
     },{
-      name: 'Tanner Linsley',
-      age: 26,
-      friend: {
-        name: 'Jason Maurer',
-        age: 23,
-      }
+      name: 'Router_2',
+      location:"Mumbai",
+      type:"VM",
+      c_value: "42",
+      status: "Active"
+    },{
+      name: 'Router_3',
+      location:"Delhi",
+      type:"VM",
+      c_value: "14",
+      status: "Active"
+    },{
+      name: 'Router_4',
+      location:"Chennai",
+      type:"VM",
+      c_value: "25",
+      status: "Active"
     }]
    
     const columns = [{
       Header: 'Name',
       accessor: 'name' // String-based value accessors!
     }, {
-      Header: 'Age',
-      accessor: 'age',
-      Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+      Header: 'Location',
+      accessor: 'location',
+      Cell: props => <span className='number'>{props.value}</span>
     }, {
-      id: 'friendName', // Required because our accessor is not a string
-      Header: 'Friend Name',
-      accessor: d => d.friend.name // Custom value accessors!
+      Header: 'Type',
+      accessor: 'type',
+      Cell: props => <span className='number'>{props.value}</span>
     }, {
-      Header: props => <span>Friend Age</span>, // Custom header components!
-      accessor: 'friend.age'
+      Header: 'Current Value',
+      accessor: 'C_value',
+      Cell: props => <span className='number'>{props.value}</span>
+    }, {
+      Header: 'Status',
+      accessor: 'status',
+      Cell: props => <span className='number'>{props.value}</span>
     }]
    
-    return <ReactTable
-      data={data}
-      columns={columns}
-      getTrProps={(state, rowInfo, column, instance) => {
-        return {
-          onClick: (e, t) => { this.onRowClick(e, t, rowInfo) }
-        }
-      }}
-    />
+    return <div>
+        <div className="header"> IOT LIST </div>
+        <ReactTable
+        data={data}
+        columns={columns}
+        defaultPageSize={10}
+        getTrProps={(state, rowInfo, column, instance) => {
+          return {
+            onClick: (e, t) => { this.onRowClick(e, t, rowInfo) }
+          }
+        }}
+      />
+    </div>
   }
 }
 
