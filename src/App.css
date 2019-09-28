@@ -27,3 +27,11 @@
     text-align: center;
     background-color: #c4c4e8;
 }
+
+.ReactTable .rt-tbody{
+  text-align: center;
+}
+
+.ReactTable .rt-thead.-header{
+  font-weight: bold;
+}
